@@ -1,0 +1,19 @@
+[periodic_k1_S3_Nx128_Nt50] Nx=128 Nt=50 h=0.049087 cH=0.44936 ellH=0.50412 LA=1.1918 eta=0.25 theta=0.54795
+K=      1 res=2.9358e-01 TVdef=2.8065e+00 max|m|=2.2252e-17 expl=nan |psi|=7.3394e-02 1.666ms/it
+K=      3 res=2.9267e-01 TVdef=2.8057e+00 max|m|=2.9357e-04 expl=nan |psi|=2.1950e-01 1.680ms/it
+K=      5 res=2.9077e-01 TVdef=2.8042e+00 max|m|=1.1817e-03 expl=nan |psi|=3.6347e-01 1.640ms/it
+K=     10 res=2.7839e-01 TVdef=2.7957e+00 max|m|=6.0747e-03 expl=nan |psi|=6.9597e-01 1.631ms/it
+K=     18 res=2.3828e-01 TVdef=2.7983e+00 max|m|=1.8404e-02 expl=nan |psi|=1.0723e+00 1.600ms/it
+K=     32 res=1.6670e-01 TVdef=3.0539e+00 max|m|=3.1486e-02 expl=nan |psi|=1.3336e+00 1.583ms/it
+K=     59 res=1.2120e-01 TVdef=4.3076e+00 max|m|=2.0649e-02 expl=2.1570e-01 |psi|=1.7877e+00 1.580ms/it
+K=    105 res=1.0413e-01 TVdef=4.0425e+00 max|m|=1.2266e-02 expl=1.3001e-01 |psi|=2.7334e+00 1.581ms/it
+K=    189 res=9.7116e-02 TVdef=4.1279e+00 max|m|=8.8065e-02 expl=8.3902e-02 |psi|=4.5887e+00 1.557ms/it
+K=    338 res=9.0948e-02 TVdef=5.2856e+00 max|m|=1.8088e-01 expl=5.1237e-02 |psi|=7.6851e+00 1.556ms/it
+K=    606 res=6.9363e-02 TVdef=1.1755e+01 max|m|=2.3767e-01 expl=3.5808e-02 |psi|=1.0509e+01 1.564ms/it
+K=   1086 res=3.1097e-02 TVdef=2.3057e+01 max|m|=3.7071e-01 expl=2.1048e-02 |psi|=8.4427e+00 1.566ms/it
+K=   1945 res=1.6597e-02 TVdef=5.2895e+01 max|m|=3.9262e-01 expl=1.1936e-02 |psi|=8.0705e+00 1.550ms/it
+K=   3483 res=9.0216e-03 TVdef=6.8213e+01 max|m|=3.9667e-01 expl=6.9576e-03 |psi|=7.8556e+00 1.546ms/it
+K=   6237 res=5.0829e-03 TVdef=5.5670e+01 max|m|=4.0817e-01 expl=4.3153e-03 |psi|=7.9254e+00 1.556ms/it
+K=  11169 res=2.8962e-03 TVdef=3.5423e+01 max|m|=4.1157e-01 expl=2.7263e-03 |psi|=8.0868e+00 1.577ms/it
+K=  20000 res=1.6056e-03 TVdef=1.7857e+01 max|m|=4.1440e-01 expl=1.5675e-03 |psi|=8.0282e+00 1.590ms/it
+Saved periodic_k1_S3_Nx128_Nt50: 31.80s iteration + 0.72s diagnostics; adjoint error=5.00e-16, Bellman error=4.44e-16

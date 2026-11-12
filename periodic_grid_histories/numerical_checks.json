@@ -1,0 +1,52 @@
+{
+  "S3": {
+    "generator_dense_error": 2.842170943040401e-14,
+    "generator_duality_error": 2.2737367544323206e-13,
+    "cyclic_solve_error": 4.440892098500626e-16,
+    "cyclic_transpose_error": 4.440892098500626e-16,
+    "cyclic_mass_error": 0.0,
+    "riesz_inverse_relative_error": 3.654506482519246e-15,
+    "midpoint_adjoint_error": 4.440892098500626e-16,
+    "time_riesz_representation_error": 2.706168622523819e-16
+  },
+  "Euclidean": {
+    "generator_dense_error": 2.842170943040401e-14,
+    "generator_duality_error": 2.2737367544323206e-13,
+    "cyclic_solve_error": 4.440892098500626e-16,
+    "cyclic_transpose_error": 4.440892098500626e-16,
+    "cyclic_mass_error": 0.0,
+    "riesz_inverse_relative_error": 2.8979761624051802e-15,
+    "midpoint_adjoint_error": 4.440892098500626e-16,
+    "time_riesz_representation_error": 8.881784197001252e-16
+  },
+  "fourier_constants_error": 1.1151080059335072e-12,
+  "balanced_policy": {
+    "terminal_fourier_error": 8.673617379884035e-17,
+    "maximum_sine_moment": 7.771561172376096e-16,
+    "exploitability": 1.264661470453272e-16
+  },
+  "howard_exhaustive_error": 1.1102230246251565e-16,
+  "assembled_balanced_feasibility": [
+    {
+      "Nx": 64,
+      "Nt": 25,
+      "restricted_residual": 6.394375558740969e-16,
+      "minimum_mass": 1.814747796480276e-10,
+      "maximum_sine_moment": 1.3357370765021415e-16
+    },
+    {
+      "Nx": 128,
+      "Nt": 50,
+      "restricted_residual": 5.177833173038883e-16,
+      "minimum_mass": 1.0512424264419451e-14,
+      "maximum_sine_moment": 1.6147132078896015e-16
+    },
+    {
+      "Nx": 256,
+      "Nt": 100,
+      "restricted_residual": 1.7275447536621077e-15,
+      "minimum_mass": -6.938893903907228e-18,
+      "maximum_sine_moment": 1.334270939149521e-16
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+{
+  "source_sha256": "00b3b296612ec6f082a3ee88c8b9cda3cda90469a3d05cb8c3c6721f7b8f461c",
+  "runs": [
+    {
+      "tag": "periodic_k1_S3_Nx64_Nt25",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "64",
+        "--Nt",
+        "25",
+        "--K",
+        "20000",
+        "--metric",
+        "S",
+        "--step",
+        "0.25",
+        "--kappa",
+        "1",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k1_S3_Nx64_Nt25"
+      ]
+    },
+    {
+      "tag": "periodic_k1_E_Nx64_Nt25",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "64",
+        "--Nt",
+        "25",
+        "--K",
+        "20000",
+        "--metric",
+        "E",
+        "--step",
+        "auto",
+        "--kappa",
+        "1",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k1_E_Nx64_Nt25"
+      ]
+    },
+    {
+      "tag": "periodic_k0_S3_Nx64_Nt25",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "64",
+        "--Nt",
+        "25",
+        "--K",
+        "20000",
+        "--metric",
+        "S",
+        "--step",
+        "0.25",
+        "--kappa",
+        "0",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k0_S3_Nx64_Nt25"
+      ]
+    },
+    {
+      "tag": "periodic_k0_E_Nx64_Nt25",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "64",
+        "--Nt",
+        "25",
+        "--K",
+        "20000",
+        "--metric",
+        "E",
+        "--step",
+        "auto",
+        "--kappa",
+        "0",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k0_E_Nx64_Nt25"
+      ]
+    },
+    {
+      "tag": "periodic_k1_S3_Nx128_Nt50",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "128",
+        "--Nt",
+        "50",
+        "--K",
+        "20000",
+        "--metric",
+        "S",
+        "--step",
+        "0.25",
+        "--kappa",
+        "1",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k1_S3_Nx128_Nt50"
+      ]
+    },
+    {
+      "tag": "periodic_k1_E_Nx128_Nt50",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "128",
+        "--Nt",
+        "50",
+        "--K",
+        "20000",
+        "--metric",
+        "E",
+        "--step",
+        "auto",
+        "--kappa",
+        "1",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k1_E_Nx128_Nt50"
+      ]
+    },
+    {
+      "tag": "periodic_k0_S3_Nx128_Nt50",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "128",
+        "--Nt",
+        "50",
+        "--K",
+        "20000",
+        "--metric",
+        "S",
+        "--step",
+        "0.25",
+        "--kappa",
+        "0",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k0_S3_Nx128_Nt50"
+      ]
+    },
+    {
+      "tag": "periodic_k0_E_Nx128_Nt50",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "128",
+        "--Nt",
+        "50",
+        "--K",
+        "20000",
+        "--metric",
+        "E",
+        "--step",
+        "auto",
+        "--kappa",
+        "0",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k0_E_Nx128_Nt50"
+      ]
+    },
+    {
+      "tag": "periodic_k1_S3_Nx256_Nt100",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "256",
+        "--Nt",
+        "100",
+        "--K",
+        "20000",
+        "--metric",
+        "S",
+        "--step",
+        "0.25",
+        "--kappa",
+        "1",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k1_S3_Nx256_Nt100"
+      ]
+    },
+    {
+      "tag": "periodic_k1_E_Nx256_Nt100",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "256",
+        "--Nt",
+        "100",
+        "--K",
+        "20000",
+        "--metric",
+        "E",
+        "--step",
+        "auto",
+        "--kappa",
+        "1",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k1_E_Nx256_Nt100"
+      ]
+    },
+    {
+      "tag": "periodic_k0_S3_Nx256_Nt100",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "256",
+        "--Nt",
+        "100",
+        "--K",
+        "20000",
+        "--metric",
+        "S",
+        "--step",
+        "0.25",
+        "--kappa",
+        "0",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k0_S3_Nx256_Nt100"
+      ]
+    },
+    {
+      "tag": "periodic_k0_E_Nx256_Nt100",
+      "command": [
+        "/Users/erhan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_diffusion_grid.py",
+        "--Nx",
+        "256",
+        "--Nt",
+        "100",
+        "--K",
+        "20000",
+        "--metric",
+        "E",
+        "--step",
+        "auto",
+        "--kappa",
+        "0",
+        "--nsub",
+        "800",
+        "--ncheck",
+        "18",
+        "--outdir",
+        "/Users/erhan/Documents/Codex/2026-10-05/git-clone-https-git-git-overleaf/67f4837285ce6adb7bdd8e6a/Continuous-extraG/NumericalFiles/periodic_grid_histories",
+        "--tag",
+        "periodic_k0_E_Nx256_Nt100"
+      ]
+    }
+  ],
+  "K": 20000,
+  "workers": 3,
+  "results": [
+    {
+      "tag": "periodic_k1_S3_Nx64_Nt25",
+      "exit_code": 0,
+      "seconds": 12.95
+    },
+    {
+      "tag": "periodic_k1_E_Nx64_Nt25",
+      "exit_code": 0,
+      "seconds": 12.88
+    },
+    {
+      "tag": "periodic_k0_S3_Nx64_Nt25",
+      "exit_code": 0,
+      "seconds": 12.83
+    },
+    {
+      "tag": "periodic_k0_E_Nx64_Nt25",
+      "exit_code": 0,
+      "seconds": 12.98
+    },
+    {
+      "tag": "periodic_k1_S3_Nx128_Nt50",
+      "exit_code": 0,
+      "seconds": 32.82
+    },
+    {
+      "tag": "periodic_k1_E_Nx128_Nt50",
+      "exit_code": 0,
+      "seconds": 32.49
+    },
+    {
+      "tag": "periodic_k0_S3_Nx128_Nt50",
+      "exit_code": 0,
+      "seconds": 32.89
+    },
+    {
+      "tag": "periodic_k0_E_Nx128_Nt50",
+      "exit_code": 0,
+      "seconds": 32.67
+    },
+    {
+      "tag": "periodic_k1_S3_Nx256_Nt100",
+      "exit_code": 0,
+      "seconds": 107.6
+    },
+    {
+      "tag": "periodic_k1_E_Nx256_Nt100",
+      "exit_code": 0,
+      "seconds": 103.12
+    },
+    {
+      "tag": "periodic_k0_S3_Nx256_Nt100",
+      "exit_code": 0,
+      "seconds": 102.34
+    },
+    {
+      "tag": "periodic_k0_E_Nx256_Nt100",
+      "exit_code": 0,
+      "seconds": 103.56
+    }
+  ]
+}
