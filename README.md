@@ -1,82 +1,32 @@
-# Primal–Dual KL Mirror-Prox for Dynamic Mean Field Games
+# Numerical source and results
 
-Code and saved results for the numerical experiments in
+This directory contains the scripts and saved outputs for the experiments in
+`updated notations.tex`, together with the earlier experiments in `PD-KL-MP.tex`.
 
-> E. Bayraktar, I. Ekren, L. Vy and Z. Zhang,
-> *Primal–Dual Kullback–Leibler Mirror-Prox for Dynamic Mean Field Games*,
-> arXiv:XXXX.XXXXX (2026).
+## Requirements
 
-The method computes finite-horizon mean field equilibria in the
-occupation-measure formulation of the game. Each iteration tilts the
-occupation measures exponentially by the current HJB residuals and corrects
-the dual variable with a linear Riesz map, so no HJB equation or
-best-response problem is solved. Code for the static version of the method
-is in [kl-mirror-prox-mfe](https://github.com/Lethargy/kl-mirror-prox-mfe).
+Use Python 3 with NumPy, SciPy, and Matplotlib. The saved CSV and NPZ files in
+this directory are the data used for the figures currently included in the
+paper.
 
-## Contents
+## Periodic controlled diffusion
 
-| Paper | Experiment | Scripts | Saved results |
-|---|---|---|---|
-| §7.1 | Finite-state congestion game | `finite_state_rates.py`, `make_plots.py` | `finite_state_history.csv`, `finite_state_result.npz` |
-| §7.2 | Periodic controlled diffusion on Markov-chain grids | `periodic_diffusion_grid.py`, `run_periodic_sweep.py`, `periodic_grid_plots.py`, `periodic_checks.py` | `periodic_grid_histories/` |
-| §7.3 | The same game with a Fourier test space | `periodic_fourier.py`, `periodic_fourier_plots.py` | `periodic_fourier_histories/` |
+The updated notation draft uses the game on the circle `R/(2*pi Z)`:
+`dX = a dt + sqrt(2) dW (mod 2*pi)`, `a in {-1,+1}`, `X_0=0`,
+`f(x,mu)=sin(x)*integral sin(y) mu(dy)`, and `g(x)=-kappa*sin(x)`.
+Both the terminal reference and each running state law are uniform on the
+periodic grid; the action reference assigns probability one half to each
+of the two actions. This initialization is strictly positive and need not
+satisfy the initial-condition constraint.
 
-The figures in the paper are in `plots/`.
-
-## Installation
-
-```sh
-git clone https://github.com/Lethargy/pd-kl-mirror-prox-mfe.git
-cd pd-kl-mirror-prox-mfe
-python -m pip install -r requirements.txt
-```
-
-The code needs Python 3 with NumPy, SciPy and Matplotlib. It was tested with
-Python X.Y, NumPy X.Y, SciPy X.Y and Matplotlib X.Y.
-
-## Regenerating the figures from the saved results
-
-```sh
-python make_plots.py
-python periodic_grid_plots.py --histdir periodic_grid_histories
-python periodic_fourier_plots.py
-```
-
-## Rerunning the experiments
-
-### §7.1 Finite-state congestion game
-
-Five states, three actions (left, stay, right), horizon T = 1, and the dual
-space `H = R^E` with the Euclidean inner product. The dual iterate, its time
-derivative and its terminal value are stored separately, so no finite
-difference in time is needed; time integrals use the midpoint rule on 100
-intervals. The script records the forward-equation residual of the averaged
-iterate, the size of the feasibility correction (the forward equation is
-re-solved under the extracted feedback with matrix exponentials), and the
-exploitability (Stampacchia gap) of the corrected average, computed from an
-RK4 solution of the finite-state HJB system.
-
-```sh
-python finite_state_rates.py
-```
-
-This writes `finite_state_history.csv` and `finite_state_result.npz`.
-Figures: `plots/finite_state_rates.png`, `plots/finite_state_equilibrium.png`.
-
-### §7.2 Periodic controlled diffusion
-
-Players move on the circle R/2πZ by dX = a dt + √2 dW with a ∈ {−1, +1} and
-X₀ = 0. The running cost is f(x, μ) = sin(x) ∫ sin(y) μ(dy) and the terminal
-cost is g(x) = −κ sin(x). The Markov chain uses periodic Kushner–Dupuis
-rates, and the Sobolev Riesz map is applied by FFT. The reference measures
-are uniform in state and action; they are strictly positive and need not
-satisfy the initial condition.
-
-`run_periodic_sweep.py` runs 12 cases: (Nx, Nt) ∈ {(64, 25), (128, 50),
-(256, 100)}, κ ∈ {0, 1}, and either the discrete Sobolev metric `H_h^3` or
-the Euclidean metric for the dual variable. Every run uses 20,000 iterations,
-with step 0.25 for the Sobolev metric and 0.99/(L_C + L_A) for the Euclidean
-metric.
+`periodic_diffusion_grid.py` uses cyclic transition rates and an FFT solve for
+the periodic Sobolev Riesz map. `run_periodic_sweep.py` runs the 12 cases:
+`(Nx,Nt)=(64,25),(128,50),(256,100)`, `kappa=0,1`, and the Sobolev and
+Euclidean metrics. Every run uses 20,000 proximal iterations. The Sobolev
+step is 0.25; each Euclidean step is `0.99/(L_C+L_A)`. The saved outputs are
+in `periodic_grid_histories/`; the manifest records exact commands and a
+source hash. The collected results are `periodic_sweep_summary.csv` in that
+folder. Reproduce into a fresh directory:
 
 ```sh
 python run_periodic_sweep.py --K 20000 --jobs 3 --outdir periodic_grid_reproduced
@@ -84,55 +34,129 @@ python periodic_grid_plots.py --histdir periodic_grid_reproduced
 python periodic_checks.py
 ```
 
-The driver does not overwrite existing results, and its manifest records the
-exact commands and a hash of the source. The values in the table of §7.2 are
-in `periodic_grid_histories/periodic_sweep_summary.csv`.
-Figures: `plots/periodic_grid_g.png`, `plots/periodic_grid_0.png`,
-`plots/periodic_grid_moment.png`.
+The checks compare cyclic solves and FFT constants with independent dense
+calculations, verify the weak pairing and midpoint adjoint identities, and
+compare Howard iteration with exhaustive policy enumeration on a small grid.
+They also verify an explicitly feasible balanced-policy comparison for each
+assembled resolution. The `kappa=0` runs preserve zero sine moment and zero
+exploitability to roundoff. The equilibrium diagnostic uses the same periodic
+chain for forward and backward implicit-Euler solves. The finite-chain and
+periodic spatial hypotheses are satisfied, while exact continuous-time
+certificates and continuum convergence still require temporal and spatial
+error estimates.
 
-`periodic_checks.py` compares the periodic solves and FFT constants with dense
-computations, checks the weak pairing and midpoint adjoint identities,
-compares Howard iteration with exhaustive policy enumeration on a small grid,
-and checks a feasible balanced-policy comparison at each resolution.
-
-### §7.3 Fourier test space
-
-`periodic_fourier.py` imposes the forward equation of the §7.2 game against M
-real Fourier modes with diagonal `H^3` Gram weights, on a fixed 128-node
-quadrature grid with 50 time intervals.
+`periodic_fourier.py` is a separate direct-generator implementation. It uses
+normalized real Fourier tests and diagonal `H^3` Gram weights, with a fixed
+128-node periodic quadrature grid and 50 time intervals. Saved runs for
+`M=4,8,16` are in `periodic_fourier_histories/`, including cross-mode residual
+checks. Reproduction commands are:
 
 ```sh
-for M in 4 8 16; do
-  python periodic_fourier.py --modes $M --Nx 128 --Nt 50 --K 20000 --step 0.25 --kappa 1
-done
+python periodic_fourier.py --modes 4 --Nx 128 --Nt 50 --K 20000 --step 0.25 --kappa 1
+python periodic_fourier.py --modes 8 --Nx 128 --Nt 50 --K 20000 --step 0.25 --kappa 1
+python periodic_fourier.py --modes 16 --Nx 128 --Nt 50 --K 20000 --step 0.25 --kappa 1
 python periodic_fourier_plots.py
 ```
 
-Figure: `plots/periodic_fourier.png`.
+A fixed Fourier test space enforces only its moment equations. The saved
+cross-mode checks show why its own small residual should not be interpreted
+as full forward-equation feasibility. The periodic figures are
+`periodic_grid_g.png`, `periodic_grid_0.png`, `periodic_grid_moment.png`, and
+`periodic_fourier.png` in `../plots/`. The scripts below retain the earlier
+whole-line and reflecting-grid experiments for reproduction of the older draft.
 
-## What the experiments do and do not show
+## Finite-state congestion game
 
-- Each grid run is a finite-state game of the kind covered by the paper's
-  theory, up to the midpoint discretization in time. Statements about the
-  diffusion itself, or about the exact continuous-time iteration, would need
-  temporal and spatial error estimates that these experiments do not provide.
-- A fixed Fourier test space enforces only its own moment equations. The
-  cross-mode checks in `periodic_fourier_histories/` show that a small
-  residual in that space does not imply full feasibility.
-- For κ = 0 the balanced policy is an exact equilibrium, and the runs keep the
-  sine moment and the exploitability at roundoff level.
+`finite_state_rates.py` runs primal--dual KL Mirror-Prox on the five-state,
+three-action congestion game with `H = R^E` and the analytic time-Riesz formula.
+The dual iterate, its time derivative, and its terminal value are propagated
+separately, so no finite difference is used for the dual time derivative.
+Time integrals are evaluated by the midpoint rule on 100 intervals.
 
-## Citation
+The script computes the weak feasibility residual, the re-simulation
+projection using matrix exponentials, and the exploitability of the projected
+average using an RK4 solution of the finite-state HJB system. It writes
+`finite_state_history.csv` and `finite_state_result.npz`.
 
-```bibtex
-@article{BayraktarEkrenVyZhang2026,
-  title   = {Primal--Dual {K}ullback--{L}eibler Mirror-Prox for Dynamic Mean Field Games},
-  author  = {Bayraktar, Erhan and Ekren, Ibrahim and Vy, Lu and Zhang, Ziqing},
-  journal = {arXiv preprint arXiv:XXXX.XXXXX},
-  year    = {2026}
-}
+Run:
+
+```sh
+python finite_state_rates.py
 ```
 
-## License
+## Archived whole-line Hermite--Galerkin experiment
 
-MIT. See `LICENSE`.
+`diffusion_exact_time.py G_WEIGHT TAG KMAX STEP` runs the two-action diffusion
+with the nonlocal `tanh` coupling and terminal cost
+`-G_WEIGHT * tanh(y)`. It uses a 16-function Hermite test space and 80
+Gauss--Hermite primal nodes. The dual time derivative is represented exactly
+in the finite-coordinate formulation; time integrals use 50 midpoint
+intervals and the spatial integrals use Gauss--Hermite quadrature.
+
+The script also computes an independent finite-difference fictitious-play
+benchmark for the HJB--Fokker--Planck system and evaluates the exploitability
+of the re-simulated projected average. The two paper runs are:
+
+```sh
+python diffusion_exact_time.py 1.0 diffusion_g 50000 0.25
+python diffusion_exact_time.py 0.0 diffusion_0 50000 0.25
+```
+
+They write `<TAG>_history.csv` and `<TAG>_result.npz`. The `diffusion_g.png`
+curves are included in the paper's Hermite--Galerkin subsection as an
+alternative to the Markov-chain implementation. This is a fixed finite-test
+illustration, not a numerical test of the continuum inexact-step error
+bounds. The remaining Hermite figures are retained as supplementary outputs.
+The independent finite-difference benchmark stored in `diffusion_g_result.npz`
+is still used for the grid-moment comparison.
+
+## Archived reflecting-grid experiment
+
+`diffusion_grid.py` replaces the controlled diffusion on `[-6,6]` by the
+Kushner--Dupuis Markov chain and compares the Euclidean dual metric with the
+discrete Sobolev metric `H_h^3`. The paper uses
+`Nx` in `{121, 241, 481}`, `Nt` in `{25, 50, 100}`, `K = 50000`, and the
+fixed steps `lambda = tau = 0.25`. Per-run histories, summaries, and saved
+states for the original sweep are preserved in `grid_histories/`. The paper's
+corrected sweep is in `grid_histories_normalized/`: feedback is normalized even
+in subnormal-mass tails, all final diagnostics are evaluated at `K = 50000`,
+and the final averaged state-action measure is saved in each NPZ.
+
+From this directory, reproduce the complete 42-case sweep into a fresh output
+directory and collect its figures with:
+
+```sh
+python rerun_normalized_grid_sweep.py --K 50000 --jobs 8 --outdir grid_histories_reproduced
+python diffusion_grid_plots.py --histdir grid_histories_reproduced
+```
+
+The driver refuses to overwrite an existing result and records the exact commands
+and source hashes in `rerun_manifest.json`. To regenerate the paper's figures
+without rerunning experiments, use `python diffusion_grid_plots.py --histdir
+grid_histories_normalized`. The corrected consolidated table is
+`grid_histories_normalized/grid_sweep_summary.csv`; the original table remains
+`grid_sweep_summary.csv`.
+
+These are reflecting-grid, midpoint-quadrature experiments with a sampled
+Gaussian reference. They do not verify the periodic mesh theorem or its
+uniform-reference hypothesis verbatim. Reported residuals and implicit-Euler
+exploitabilities are numerical diagnostics, not continuum convergence
+certificates. Further implementation details and the original sweep record
+are in `grid_report.md`.
+
+## Figures
+
+`make_plots.py` regenerates the finite-state and Hermite figures in
+`../plots/` from the saved outputs:
+
+```sh
+python make_plots.py
+```
+
+`diffusion_grid_plots.py` regenerates `diffusion_grid_g.png`,
+`diffusion_grid_0.png`, and the supplementary moment comparison
+`diffusion_grid_moment.png` from the saved grid sweep.
+
+Every fixed grid run is a finite-state instance of the theory. Its
+interpretation as an approximation of the diffusion is conditional on the
+additional tightness and consistency needed to pass to the continuum limit.
