@@ -1,0 +1,112 @@
+{
+  "parameters": {
+    "kappa": 1,
+    "Nx": 128,
+    "Nt": 50,
+    "K": 20000,
+    "step": 0.25
+  },
+  "note": "Residuals under different Fourier test spaces are distinct metrics; moment agreement does not imply agreement of complete distributions. These unprojected outputs do not certify continuum feasibility.",
+  "summary": [
+    {
+      "modes": 4,
+      "basis_dimension": 9,
+      "K": 20000,
+      "step": 0.25,
+      "theta": 0.5134930095507648,
+      "residual_own": 0.0014806912133424638,
+      "residual_M16_tests": 0.08938786379268839,
+      "max_abs_moment": 0.430249753618075,
+      "terminal_sin_moment": 0.4441970096040894,
+      "mass_error": 2.220446049250313e-15
+    },
+    {
+      "modes": 8,
+      "basis_dimension": 17,
+      "K": 20000,
+      "step": 0.25,
+      "theta": 0.5279078967244503,
+      "residual_own": 0.001527776052307444,
+      "residual_M16_tests": 0.04034946969255811,
+      "max_abs_moment": 0.42321164963508945,
+      "terminal_sin_moment": 0.43693413914576573,
+      "mass_error": 1.9984014443252818e-15
+    },
+    {
+      "modes": 16,
+      "basis_dimension": 33,
+      "K": 20000,
+      "step": 0.25,
+      "theta": 0.5358143961704984,
+      "residual_own": 0.0015710152952400286,
+      "residual_M16_tests": 0.0015710152952400286,
+      "max_abs_moment": 0.42072972713716517,
+      "terminal_sin_moment": 0.4345703962429167,
+      "mass_error": 4.218847493575595e-15
+    }
+  ],
+  "cross_residuals": [
+    {
+      "solution_modes": 4,
+      "residual_under_tests": {
+        "4": 0.0014806912133424638,
+        "8": 0.0847151728367742,
+        "16": 0.08938786379268839
+      }
+    },
+    {
+      "solution_modes": 8,
+      "residual_under_tests": {
+        "4": 0.001488844970993498,
+        "8": 0.001527776052307444,
+        "16": 0.04034946969255811
+      }
+    },
+    {
+      "solution_modes": 16,
+      "residual_under_tests": {
+        "4": 0.0015151774360641045,
+        "8": 0.00155625501438008,
+        "16": 0.0015710152952400286
+      }
+    }
+  ],
+  "cross_mode_comparisons": [
+    {
+      "modes": [
+        4,
+        8
+      ],
+      "max_moment_difference": 0.007100472804059121,
+      "terminal_tv_distance": 0.24794348713575207,
+      "l2_time_state_tv_distance": 0.6141168703803092,
+      "l2_time_joint_tv_distance": 0.6141220551438998,
+      "terminal_circle_W1": 0.08017238903259653,
+      "l2_time_state_circle_W1": 0.16828563315306444
+    },
+    {
+      "modes": [
+        8,
+        16
+      ],
+      "max_moment_difference": 0.0026851805636358694,
+      "terminal_tv_distance": 0.06835298739645532,
+      "l2_time_state_tv_distance": 0.47104805970933694,
+      "l2_time_joint_tv_distance": 0.47107491891452924,
+      "terminal_circle_W1": 0.018428470589361038,
+      "l2_time_state_circle_W1": 0.08091233047273107
+    },
+    {
+      "modes": [
+        4,
+        16
+      ],
+      "max_moment_difference": 0.009690926874361572,
+      "terminal_tv_distance": 0.2847023710842368,
+      "l2_time_state_tv_distance": 0.5506425470309202,
+      "l2_time_joint_tv_distance": 0.5506498443370994,
+      "terminal_circle_W1": 0.09011733772535217,
+      "l2_time_state_circle_W1": 0.15890803011294025
+    }
+  ]
+}

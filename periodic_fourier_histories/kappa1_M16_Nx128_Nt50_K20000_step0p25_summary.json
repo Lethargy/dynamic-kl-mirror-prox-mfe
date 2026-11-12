@@ -1,0 +1,53 @@
+{
+  "model": "circle length 2*pi; dX=a dt+sqrt(2)dW, a=-1,+1, X0=0, T=1",
+  "running_cost": "sin(x)*integral sin(y) mu_t(dy)",
+  "terminal_cost": "-kappa*sin(x)",
+  "method": "direct Fourier spatial generator; continuous P1 dual time coefficients; midpoint assembly",
+  "limitations": "finite Fourier tests and fixed primal quadrature; no feasibility projection, exploitability, or continuum convergence certificate",
+  "parameters": {
+    "modes": 16,
+    "basis_dimension": 33,
+    "Nx": 128,
+    "Nt": 50,
+    "K": 20000,
+    "lambda": 0.25,
+    "tau": 0.25,
+    "kappa": 1.0
+  },
+  "constants": {
+    "cH": 0.4493358165443427,
+    "ellH": 0.4751927379689642,
+    "LC": 1.0,
+    "LA": 1.1432575846819935,
+    "theta": 0.5358143961704984
+  },
+  "initial_residual": 0.2923960770519187,
+  "final_residual_avg": 0.0015710152952400286,
+  "final_residual_last": 0.02279938152235827,
+  "max_abs_moment": 0.42072972713716517,
+  "terminal_sin_moment": 0.4345703962429167,
+  "dual_norm": 7.85507647620001,
+  "self_cost_unprojected": -0.34643192164608166,
+  "mass_error": 4.218847493575595e-15,
+  "minimum_average_terminal_mass": 2.8140472713668155e-05,
+  "minimum_average_joint_mass": 2.3755301987940536e-06,
+  "maximum_constant_defect": 1.6653345369377348e-15,
+  "elapsed_seconds": 12.346300875069574,
+  "self_tests": {
+    "passed": true,
+    "first_derivative_max_error": 3.8851533545880557e-08,
+    "second_derivative_max_error": 0.000115941117883267,
+    "adjoint_absolute_error": 3.3306690738754696e-16,
+    "riesz_absolute_error": 1.3322676295501878e-15,
+    "constant_mode_max_error": 2.7755575615628914e-16
+  },
+  "source_sha256": "13da453c37cbf6f7a36483a01bdd8bc009c9aa70ea1f4b5deaf92c3f3648619a",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  },
+  "files": {
+    "history": "kappa1_M16_Nx128_Nt50_K20000_step0p25_history.csv",
+    "results": "kappa1_M16_Nx128_Nt50_K20000_step0p25_result.npz"
+  }
+}
