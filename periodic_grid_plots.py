@@ -102,7 +102,7 @@ def diagnostic_figure(runs: list[dict], kappa: float, plots: Path, style):
                              squeeze=False)
     names = ("residual_avg", "max_abs_moment", "exploitability")
     titles = ("Averaged feasibility residual", "Maximum population moment",
-              "Projected exploitability diagnostic")
+              "Stampacchia gap")
     zero_case = np.isclose(kappa, 0.0)
     for row, metric in enumerate(metrics):
         group = sorted((r for r in selected if r["metric"] == metric),
